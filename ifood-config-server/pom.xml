@@ -6,15 +6,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.pattern.microservices</groupId>
-		<artifactId>microservices-parent</artifactId>
+		<groupId>br.com.ifood</groupId>
+		<artifactId>ifood-parent</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>ifood-config-server</artifactId>
 
 	<name>ifood-config-server</name>
-	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
 	<properties>
@@ -26,7 +25,6 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
