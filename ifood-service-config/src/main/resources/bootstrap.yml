@@ -1,5 +1,7 @@
 ---
 spring:
+  application:
+    name: ifood-service-config
   cloud:
     config:
       server:

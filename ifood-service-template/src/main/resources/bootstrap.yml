@@ -1,0 +1,9 @@
+---
+spring:
+  application:
+    name: ifood-service-template
+  cloud:
+    config:
+      uri: http://localhost:8001
+      discovery:
+        enable: true

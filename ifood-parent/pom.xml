@@ -10,6 +10,12 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<modules>
+		<module>ifood-service-config</module>
+		<module>ifood-service-discovery</module>
+		<module>ifood-service-template</module>
+	</modules>
+
 	<name>ifood-parent</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
@@ -23,7 +29,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Dalston.RELEASE</version>
+				<version>Finchley.M9</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -34,7 +40,28 @@
 				<version>4.12</version>
 				<scope>test</scope>
 			</dependency>
+
+			<dependency>
+				<!-- Import dependency management from Spring Boot -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.0.1.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/libs-milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>
