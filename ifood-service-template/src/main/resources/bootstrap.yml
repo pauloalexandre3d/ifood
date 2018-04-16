@@ -9,7 +9,3 @@ spring:
       uri: http://localhost:8001
       discovery:
         enable: true
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8010/eureka/
