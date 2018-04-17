@@ -12,10 +12,10 @@
 		<relativePath>../ifood-parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>ifood-service-config</artifactId>
+	<artifactId>ifood-service-gateway</artifactId>
 	<packaging>jar</packaging>
 
-	<name>ifood-service-config</name>
+	<name>ifood-service-gateway</name>
 	<url>http://www.example.com</url>
 
 	<properties>
@@ -31,20 +31,17 @@
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
-			<version>1.4.4.RELEASE</version>
+			<version>1.4.4.RELEASE	</version>
 		</dependency>
-		
-		<!-- Allow for automatic restarts when classpath contents change. -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
+			<version>1.4.4.RELEASE	</version>
 		</dependency>
 
 	</dependencies>

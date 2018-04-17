@@ -2,12 +2,12 @@
 spring:
   cloud:
     config:
-      name: ifood-service-template
+      name: ifood-service-gateway
     discovery:
       serviceId: ifood-service-config
     enabled: true
 
-eureka:
+ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8010/eureka/

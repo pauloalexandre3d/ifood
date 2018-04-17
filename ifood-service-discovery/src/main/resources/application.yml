@@ -1,17 +1,18 @@
 ---
 spring:
+  application:
+    name: ifood-service-discovery
   profiles: default
+  
 server:
-  port: 8010  
+  port: 8010
+    
 eureka:
   instance:
-    #statusPageUrlPath: ${management.contextPath/info}
-    #statusCheckUrlPath: ${management.contextPath/health}
     hostname: localhost 
   client:
-    registerWithEureka: true
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/ifood-service-discovery/    
-
+      defaultZone: http://localhost:8010/eureka/
+    registerWithEureka: false
+    fetchRegistry: false 
 ---  

@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: ifood-service-gateway
+server:
+  port: 8080
+ 
+eureka:
+  client:
+    region: default
+    registryFetchIntervalSeconds: 5
+ 
+zuul:
+  routes:
+    ifood-service-template: 
+      path: /book-service/**
+      sensitiveHeaders: Set-Cookie,Authorization
+    ratingService:
+      path: /rating-service/**
+      sensitiveHeaders: Set-Cookie,Authorization
+    discovery:
+      path: /discovery/**
+      sensitiveHeaders: Set-Cookie,Authorization
+      url: http://localhost:8010
+    
+hystrix:
+  command:
+    bookService:
+      execution:
+        isolation: 
+          thread:
+            timeoutInMilliseconds: 600000
+    ratingService:
+      execution:
+        isolation: 
+          thread:
+            timeoutInMilliseconds: 600000
+    discovery:
+      execution:
+        isolation: 
+          thread:
+            timeoutInMilliseconds: 600000
