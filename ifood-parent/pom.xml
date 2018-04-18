@@ -14,6 +14,7 @@
 		<module>../ifood-service-config</module>
 		<module>../ifood-service-discovery</module>
 		<module>../ifood-service-template</module>
+		<module>../ifood-service-gateway</module>
 	</modules>
 
 	<name>ifood-parent</name>

@@ -3,10 +3,10 @@ spring:
   application:
     name: ifood-service-discovery
   profiles: default
-  
+
 server:
   port: 8010
-    
+
 eureka:
   instance:
     hostname: localhost 
@@ -15,4 +15,3 @@ eureka:
       defaultZone: http://localhost:8010/eureka/
     registerWithEureka: false
     fetchRegistry: false 
----  
