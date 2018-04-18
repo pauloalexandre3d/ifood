@@ -4,7 +4,3 @@ spring:
     config:
       name: ifood-service-discovery
       uri: http://localhost:8001
-
-spring:
-  application:
-    name: ifood-service-discovery
