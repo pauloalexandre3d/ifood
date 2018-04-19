@@ -13,10 +13,10 @@
 	</parent>
 
 
-	<artifactId>ifood-service-template</artifactId>
+	<artifactId>ifood-service-restaurant</artifactId>
 	<packaging>jar</packaging>
 
-	<name>ifood-service-template</name>
+	<name>ifood-service-restaurant</name>
 	<url>http://www.example.com</url>
 
 	<properties>

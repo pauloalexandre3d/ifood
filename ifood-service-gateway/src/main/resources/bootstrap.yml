@@ -3,9 +3,9 @@ spring:
   cloud:
     config:
       name: ifood-service-gateway
-    discovery:
-      serviceId: ifood-service-config
-    enabled: true
+      discovery:
+        serviceId: ifood-service-config
+        enabled: true
 
  eureka:
   client:

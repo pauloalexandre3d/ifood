@@ -2,10 +2,10 @@
 spring:
   cloud:
     config:
-      name: ifood-service-template
-    discovery:
-      serviceId: ifood-service-config
-    enabled: true
+      name: ifood-service-restaurant
+      discovery:
+        serviceId: ifood-service-config
+        enabled: true
 
 eureka:
   client:

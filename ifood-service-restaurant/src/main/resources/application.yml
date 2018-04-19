@@ -1,7 +1,7 @@
 ---
 spring:
   application:
-    name: ifood-service-template
+    name: ifood-service-restaurant
 server:
   port: 8083
  

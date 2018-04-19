@@ -11,25 +11,17 @@ eureka:
  
 zuul:
   routes:
-    ifood-service-template: 
+    ifood-service-restaurant: 
       path: /book-service/**
       sensitiveHeaders: Set-Cookie,Authorization
-    ratingService:
-      path: /rating-service/**
-      sensitiveHeaders: Set-Cookie,Authorization
-    discovery:
-      path: /discovery/**
+    ifood-service-discovery:
+      path: /ifood-service-discovery/**
       sensitiveHeaders: Set-Cookie,Authorization
       url: http://localhost:8010
     
 hystrix:
   command:
-    bookService:
-      execution:
-        isolation: 
-          thread:
-            timeoutInMilliseconds: 600000
-    ratingService:
+    ifood-service-restaurant:
       execution:
         isolation: 
           thread:
