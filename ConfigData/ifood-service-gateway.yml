@@ -12,7 +12,7 @@ eureka:
 zuul:
   routes:
     ifood-service-restaurant: 
-      path: /book-service/**
+      path: /service-restaurant/**
       sensitiveHeaders: Set-Cookie,Authorization
     ifood-service-discovery:
       path: /ifood-service-discovery/**
