@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:br.com.ifood.domain.Application</config>
+		<config>java:br.com.ifood.application.Application</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

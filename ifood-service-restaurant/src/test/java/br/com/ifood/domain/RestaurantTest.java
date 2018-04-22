@@ -1,6 +1,6 @@
 package br.com.ifood.domain;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 import java.time.LocalDateTime;
@@ -27,7 +27,7 @@ public class RestaurantTest {
 		Restaurant restaurant = new Restaurant(now);
 		
 		LocalDateTime when = LocalDateTime.of(2018, 4, 18, 17, 0);
-		int unavailableTime = 120;
+		Long unavailableTime = 120L;
 		restaurant.addScheduled(new Unavailability(when, unavailableTime, Unavailability.Reason.OVERLOADED_DUE_TO_OFFLINE_ORDERS));
 		
 		assertThat(restaurant.isAvailable(), is(false));
@@ -39,7 +39,7 @@ public class RestaurantTest {
 		Restaurant restaurant = new Restaurant(now);
 		
 		LocalDateTime when = LocalDateTime.of(2018, 4, 19, 17, 0);
-		int unavailableTime = 120;
+		Long unavailableTime = 120L;
 		restaurant.addScheduled(new Unavailability(when, unavailableTime, Unavailability.Reason.CONNECTION_ISSUES));
 		
 		assertThat(restaurant.isAvailable(), is(true));
@@ -51,7 +51,7 @@ public class RestaurantTest {
 		Restaurant restaurant = new Restaurant(now);
 		
 		LocalDateTime when = LocalDateTime.of(2018, 4, 19, 17, 0);
-		int unavailableTime = 120;
+		Long unavailableTime = 120L;
 		Unavailability unavailability = new Unavailability(when, unavailableTime, Unavailability.Reason.LACK_OF_DELIVERY_STAFF);
 		restaurant.addScheduled(unavailability);
 		
