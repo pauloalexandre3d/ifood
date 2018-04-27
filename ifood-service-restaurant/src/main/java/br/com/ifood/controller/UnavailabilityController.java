@@ -1,9 +1,8 @@
-package br.com.ifood.application;
+package br.com.ifood.controller;
 
 import java.util.Collection;
 import java.util.Optional;
 
-import org.junit.BeforeClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
-
+import br.com.ifood.application.RestaurantNotFoundException;
 import br.com.ifood.domain.Restaurant;
 import br.com.ifood.domain.Unavailability;
 import br.com.ifood.repository.Availabilities;

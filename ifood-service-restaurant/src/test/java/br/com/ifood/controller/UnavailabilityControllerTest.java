@@ -1,10 +1,8 @@
-package br.com.ifood.application;
+package br.com.ifood.controller;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -21,18 +19,15 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.ifood.application.Application;
 import br.com.ifood.domain.Restaurant;
 import br.com.ifood.domain.Unavailability;
 import br.com.ifood.repository.Restaurants;
@@ -56,17 +51,8 @@ public class UnavailabilityControllerTest {
 
 	private Restaurant restaurant;
 	
-	@Autowired
-	private WebApplicationContext context;
-
-	private MockMvc mockMvc;
-
 	@Before
 	public void setUp() throws Exception {
-		this.mockMvc = MockMvcBuilders
-				.webAppContextSetup(context)
-				.build();
-		
 		restaurants.deleteAll();
 
 		restaurant = new Restaurant("Tanuki");

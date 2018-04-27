@@ -1,4 +1,4 @@
-package br.com.ifood.application;
+package br.com.ifood.controller;
 
 import java.util.HashMap;
 import java.util.List;

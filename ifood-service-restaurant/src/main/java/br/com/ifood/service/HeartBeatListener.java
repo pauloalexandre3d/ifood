@@ -1,4 +1,4 @@
-package br.com.ifood.application;
+package br.com.ifood.service;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -21,6 +21,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import br.com.ifood.application.Configuration;
+import br.com.ifood.application.RestaurantNotFoundException;
 import br.com.ifood.domain.Restaurant;
 import br.com.ifood.repository.Restaurants;
 

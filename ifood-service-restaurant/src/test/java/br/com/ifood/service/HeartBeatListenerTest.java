@@ -1,7 +1,8 @@
-package br.com.ifood.application;
+package br.com.ifood.service;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.*;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 
 import java.time.LocalDateTime;
@@ -22,6 +23,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import br.com.ifood.application.Application;
+import br.com.ifood.application.Configuration;
 import br.com.ifood.domain.Restaurant;
 import br.com.ifood.repository.Restaurants;
 
@@ -57,8 +60,9 @@ public class HeartBeatListenerTest {
 		HeartBeatListener heartBeatListener = new HeartBeatListener(restaurants, mqttClient, configuration);
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/M/d H:m");
 		MqttMessage message = new MqttMessage();
+		LocalDateTime messagetime = LocalDateTime.of(2018, 4, 26, 11, 0);
 		message.setPayload(String.format("{\"dateTime\": \"%s\", \"status\": \"%s\"}",
-				LocalDateTime.now().minusMinutes(2).format(formatter), "ONLINE").getBytes());
+				messagetime.format(formatter), "ONLINE").getBytes());
 
 		heartBeatListener.messageArrived(topic, message);
 		
