@@ -3,11 +3,17 @@ package br.com.ifood.application;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttSecurityException;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -25,10 +31,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableJpaRepositories(basePackages = "br.com.ifood.repository")
 @EnableTransactionManagement
 @EnableWebMvc
+@ComponentScan("br.com.ifood")
 public class Application {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws MqttSecurityException, MqttException {
+
 		SpringApplication.run(Application.class, args);
+
 	}
 
 	@Bean
@@ -55,6 +64,25 @@ public class Application {
 		JpaTransactionManager txManager = new JpaTransactionManager();
 		txManager.setEntityManagerFactory(entityManagerFactory());
 		return txManager;
+	}
+
+	@Value("${mqtt.host}")
+	private String mqttHost;
+
+	@Value("${mqtt.port}")
+	private String mqttPort;
+
+	@Bean
+	public MqttClient mqttClient() throws MqttException {
+		MqttClient mqttClient = new MqttClient("tcp://".concat(mqttHost).concat(":").concat(mqttPort), "service-restaurant-connections",
+				new MemoryPersistence());
+		MqttConnectOptions options = new MqttConnectOptions();
+		options.setAutomaticReconnect(true);
+		options.setKeepAliveInterval(30);
+		options.setConnectionTimeout(300);
+		options.setCleanSession(true);
+		mqttClient.connect(options);
+		return mqttClient;
 	}
 
 }
